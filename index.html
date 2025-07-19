@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skynet Global Consultant | Next to the Simplest</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #000;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            background: linear-gradient(45deg, #0f3460, #16537e, #1e3a8a, #1f2937);
+            background-size: 400% 400%;
+            animation: gradientFlow 8s ease-in-out infinite;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+            text-shadow: 0 0 30px rgba(59, 130, 246, 0.8);
+            background: linear-gradient(45deg, #60a5fa, #3b82f6, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+
+        .company-subtitle {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1s forwards;
+            color: #94a3b8;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 2s forwards;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #e2e8f0;
+            text-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+            background: linear-gradient(135deg, #60a5fa, #3b82f6, #a78bfa, #60a5fa);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out 2s forwards, shimmer 3s ease-in-out infinite;
+            position: relative;
+        }
+
+        .tagline::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+            border-radius: 10px;
+            opacity: 0;
+            animation: glow 2s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes glow {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .cta-button {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            background: linear-gradient(45deg, #3b82f6, #2563eb);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 3s forwards;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6);
+            background: linear-gradient(45deg, #2563eb, #1d4ed8);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: float 6s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .glitch-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 48%, rgba(255,255,255,0.03) 49%, rgba(255,255,255,0.03) 52%, transparent 53%);
+            animation: glitch 4s infinite;
+            z-index: 8;
+        }
+
+        @keyframes glitch {
+            0%, 98% { opacity: 0; }
+            99% { opacity: 1; transform: translateX(0); }
+            99.5% { opacity: 1; transform: translateX(2px); }
+            100% { opacity: 0; transform: translateX(0); }
+        }
+
+
+
+        .pulse-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            border: 2px solid rgba(59, 130, 246, 0.4);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 2s infinite;
+            z-index: 2;
+        }
+
+        .pulse-ring:nth-child(2) {
+            animation-delay: 0.5s;
+            width: 300px;
+            height: 300px;
+        }
+
+        .pulse-ring:nth-child(3) {
+            animation-delay: 1s;
+            width: 400px;
+            height: 400px;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+        }
+
+            @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            .tagline {
+                font-size: 1.2rem;
+                padding: 0 20px;
+            }
+            .company-subtitle {
+                font-size: 0.9rem;
+                padding: 0 20px;
+            }
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <!-- Background Audio -->
+        <audio id="backgroundAudio" autoplay loop>
+            <source src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/sounds/376737_Skullbeatz___Bad_Cat_Miau.ogg" type="audio/ogg">
+            <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmU+CTyX4uvJayMFl" type="audio/wav">
+        </audio>
+        
+        <div class="overlay"></div>
+        
+        <div class="pulse-ring"></div>
+        <div class="pulse-ring"></div>
+        <div class="pulse-ring"></div>
+        
+        <div class="particles" id="particles"></div>
+        
+        <div class="glitch-overlay"></div>
+        
+        <div class="content">
+            <div class="logo">SKYNET</div>
+            <div class="company-subtitle">Global Consultant <br><br>IT Services</div>
+            <div class="tagline">The Future Awaits</div>
+            <button class="cta-button" onclick="handleCTA()">Schedule Consultation</button>
+        </div>
+        
+
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            
+            setInterval(() => {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particle.style.animationDelay = Math.random() * 2 + 's';
+                
+                particlesContainer.appendChild(particle);
+                
+                setTimeout(() => {
+                    particle.remove();
+                }, 8000);
+            }, 300);
+        }
+
+        // Audio controls
+        function initAudio() {
+            const audio = document.getElementById('backgroundAudio');
+            
+            // Create a simple ambient sound using Web Audio API
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            
+            // Generate a subtle ambient sound
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.setValueAtTime(220, audioContext.currentTime);
+            oscillator.type = 'sine';
+            gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+            
+            // Add subtle frequency modulation for ambience
+            const lfo = audioContext.createOscillator();
+            const lfoGain = audioContext.createGain();
+            
+            lfo.connect(lfoGain);
+            lfoGain.connect(oscillator.frequency);
+            
+            lfo.frequency.setValueAtTime(0.5, audioContext.currentTime);
+            lfo.type = 'sine';
+            lfoGain.gain.setValueAtTime(5, audioContext.currentTime);
+            
+            // Start the ambient sound on user interaction
+            document.addEventListener('click', () => {
+                if (audioContext.state === 'suspended') {
+                    audioContext.resume().then(() => {
+                        oscillator.start();
+                        lfo.start();
+                    });
+                }
+            }, { once: true });
+        }
+
+        // Handle CTA button click
+        function handleCTA() {
+            const button = document.querySelector('.cta-button');
+            button.style.transform = 'scale(0.95)';
+            button.innerHTML = 'Contact Scheduled!';
+            
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+                button.innerHTML = 'Schedule Consultation';
+            }, 1000);
+            
+            // Add some visual feedback
+            createSuccessEffect();
+        }
+
+        function createSuccessEffect() {
+            const colors = ['#3b82f6', '#60a5fa', '#2563eb', '#1d4ed8'];
+            
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const effect = document.createElement('div');
+                    effect.style.position = 'fixed';
+                    effect.style.left = '50%';
+                    effect.style.top = '50%';
+                    effect.style.width = '10px';
+                    effect.style.height = '10px';
+                    effect.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    effect.style.borderRadius = '50%';
+                    effect.style.pointerEvents = 'none';
+                    effect.style.zIndex = '1000';
+                    
+                    const angle = (i / 20) * Math.PI * 2;
+                    const velocity = 100 + Math.random() * 100;
+                    const vx = Math.cos(angle) * velocity;
+                    const vy = Math.sin(angle) * velocity;
+                    
+                    effect.style.transform = 'translate(-50%, -50%)';
+                    document.body.appendChild(effect);
+                    
+                    let x = 0, y = 0;
+                    const animate = () => {
+                        x += vx * 0.016;
+                        y += vy * 0.016;
+                        effect.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+                        effect.style.opacity = Math.max(0, 1 - Math.abs(x) / 200);
+                        
+                        if (Math.abs(x) < 200) {
+                            requestAnimationFrame(animate);
+                        } else {
+                            effect.remove();
+                        }
+                    };
+                    
+                    requestAnimationFrame(animate);
+                }, i * 50);
+            }
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            initAudio();
+        });
+    </script>
+</body>
+</html>
