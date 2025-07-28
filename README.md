@@ -1,5 +1,3 @@
-# Website
-
 Skynet Global Consultant's Website
 
 ⚠️ All content and code are © Skynet Global Consultant.  
