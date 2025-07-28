@@ -74,7 +74,11 @@
             align-items: center;
             justify-content: center;
             gap: 1rem;
-            margin-bottom: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .logo-container img{
+           border-radius: 10px;
         }
 
         .logo-placeholder {
