@@ -74,6 +74,10 @@
             align-items: center;
             justify-content: center;
             gap: 1rem;
+            width: 500px;
+            height: 150px;
+            background-color: #ffffff;
+            border-radius: 10px;
             margin-bottom: 3rem;
         }
 
@@ -84,49 +88,9 @@
         .logo-placeholder {
             width: 470px;
             height: 106px;
-            border-radius: 10%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(64, 224, 255, 0.1);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .logo-placeholder:hover {
-            border-color: #40e0ff;
-            background: rgba(64, 224, 255, 0.2);
-            transform: scale(1.05);
-        }
-
-        .logo-text {
-            color: rgba(64, 224, 255, 0.7);
-            font-size: 0.8rem;
-            text-align: center;
-            line-height: 1.2;
-        }
-
-        .company-name {
-            font-size: 3.5rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #40e0ff, #00d4ff, #0099cc);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(64, 224, 255, 0.3);
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from { text-shadow: 0 0 20px rgba(64, 224, 255, 0.3); }
-            to { text-shadow: 0 0 40px rgba(64, 224, 255, 0.6); }
-        }
-
-        .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: #b3d9ff;
-            opacity: 0.9;
         }
 
         /* Neon Glow Effect for "The Future Awaits" */
