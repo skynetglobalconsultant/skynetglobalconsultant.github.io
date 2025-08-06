@@ -57,6 +57,7 @@
     </footer>
 
     <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
         // Create connecting dots background
         function createDots() {
             const dotsContainer = document.getElementById('dotsBackground');
@@ -111,6 +112,17 @@
                 }
             });
         });
+        //Start of Tawk.to Script
+            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+            (function(){
+                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                s1.async=true;
+                s1.src='https://embed.tawk.to/6893a91eea5b0a19269115da/1j20cp86o';
+                s1.charset='UTF-8';
+                s1.setAttribute('crossorigin','*');
+                s0.parentNode.insertBefore(s1,s0);
+            })();
+        //End Start of Tawk.to Script
     </script>
 </body>
 </html>
