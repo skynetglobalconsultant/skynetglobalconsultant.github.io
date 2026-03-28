@@ -222,6 +222,63 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        .sgc-glow-btn {
+        margin-top: 20px;
+        padding: 12px 28px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 30px;
+        border: 1px solid rgba(64, 224, 255, 0.4);
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(8px);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        transition: all 0.3s ease;
+        }
+
+        /* 🔵 Rotating Light Ring */
+        .sgc-glow-btn::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        border-radius: 30px;
+        background: conic-gradient(
+        from 0deg,
+        transparent,
+        #40e0ff,
+        transparent,
+        #00ccff,
+        transparent
+        );
+        animation: rotateLight 4s linear infinite;
+        z-index: -1;
+        }
+
+        /* Inner layer (keeps button clean) */
+        .sgc-glow-btn::after {
+        content: "";
+        position: absolute;
+        inset: 2px;
+        background: rgba(15, 15, 35, 0.95);
+        border-radius: 30px;
+        z-index: -1;
+        }
+
+        /* Rotation animation */
+        @keyframes rotateLight {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+
+        /* Hover enhancement */
+        .sgc-glow-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(64, 224, 255, 0.6);
+        }
+
         /* Footer with Social Links */
         .footer {
             position: fixed;
